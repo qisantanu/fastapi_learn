@@ -12,3 +12,5 @@ pysqlite3-binary==0.5.4
 tomli==2.2.1
 httpx==0.28.1
 python-dotenv==0.19.2
+celery==5.3.4
+redis==5.0.1

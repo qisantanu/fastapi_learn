@@ -35,6 +35,10 @@ This project currently works with:
 -  [ ] Run bundler `pip install -r requirements.txt`
 -  [ ] Database migration `alembic upgrade head`
 -  [ ] Run the application server: `uvicorn main:app --reload --log-config=log_conf.yml`
+-  [ ] Start Celery worker: `./start_celery.sh` or manually:
+   - Start Redis: `redis-server`
+   - Start worker: `celery -A celery_app worker --loglevel=info`
+   - Start beat scheduler: `celery -A celery_app beat --loglevel=info`
 -  [ ] Access the APIDOCS by opening your application in http://localhost:8000/apidocs
 
 

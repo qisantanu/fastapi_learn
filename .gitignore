@@ -35,6 +35,7 @@ config.py
 *.sqlite3
 *.db
 *.bak
+celerybeat-schedule
 
 # Build artifacts
 dist/
