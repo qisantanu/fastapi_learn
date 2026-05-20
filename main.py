@@ -1,12 +1,14 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Path, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Optional, Annotated
 import logging
 from sqlmodel import SQLModel
 from database.database import engine
 from controllers.items import router as items_router
 from controllers.users import router as users_router
 from controllers.weathers import router as weathers_router
+from controllers.data_processing import router as data_processing_router
 
 # Create FastAPI instance
 app = FastAPI()
@@ -22,11 +24,20 @@ app.add_middleware(
 app.include_router(items_router)
 app.include_router(users_router)
 app.include_router(weathers_router)
+app.include_router(data_processing_router)
 
 # # Root endpoint
-# @app.get("/")
-# def read_root():
-#     return {"message": "Hello, FastAPI!"}
+@app.get("/products/{product_id}")
+async def read_product(
+    product_id: Annotated[int, Path(title="The ID of the product to get")],
+    q: Annotated[Optional[str], Query(title="Query string for the product to search in the database")],
+):
+    results = {"product_id": product_id}
+
+    if q:
+        results.update({"q": q})
+
+    return results
 
 #     return {"item_id": item_id, "q": q}
 
