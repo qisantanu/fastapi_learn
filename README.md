@@ -29,9 +29,31 @@ This project currently works with:
 
 ### Setting up
 
+#### Linux/Ubuntu
+
+It is recommended to use a virtual environment to isolate dependencies:
+
+```bash
+# Create virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+#### Windows (PowerShell)
+
+```powershell
+pip install -r requirements.txt
+```
+
 #### Steps to follow
 
 -  [ ] Clone from repository
+-  [ ] Create and activate virtual environment (Linux) or skip (Windows)
 -  [ ] Run bundler `pip install -r requirements.txt`
 -  [ ] Database migration `alembic upgrade head`
 -  [ ] Run the application server: `uvicorn main:app --reload --log-config=log_conf.yml`
