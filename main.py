@@ -9,6 +9,7 @@ from controllers.items import router as items_router
 from controllers.users import router as users_router
 from controllers.weathers import router as weathers_router
 from controllers.data_processing import router as data_processing_router
+from models.processed_data_model import ProcessedData
 
 # Create FastAPI instance
 app = FastAPI()

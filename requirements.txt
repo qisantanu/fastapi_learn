@@ -15,3 +15,4 @@ python-dotenv==0.19.2
 celery==5.3.4
 redis==5.0.1
 numpy
+apache-airflow
